@@ -22,7 +22,7 @@ El sensor se conecta de acuerdo a la imagen de abajo
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme1.png?raw=true)
 
 Una vez conectado, cargamos a nuestro Devkit el siguiente programa ([code](https://github.com/NXTIoT/Multiples_variables/blob/master/BME280_sigfox/bme280_sigfox.ino))
-Abrimos el "Monitor Serie" de Arduino y nos aparecerá la información de las cuatro variables que está midiendo. Despues desplegara 
+Abrimos el "Monitor Serie" de Arduino y presionamos el boton azul para enviar un mensaje. Enseguida nos aparecerá la información de las cuatro variables que está midiendo. Despues desplegara 
 los comandos de "reset" del modulo y el comando de envio "AT$SF=xxxxxxxx"
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme2.png?raw=true)
@@ -40,8 +40,12 @@ nos dirigimos a la parte inferior en "Payload display". Seleccionamos "Payload p
 
 -	temp::uint:8 presion::float:32:little-endian alt::float:32:little-endian hum::uint:8
 
+damos click en "OK"
+
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme6.png?raw=true)
 
+ahora nos vamos a los mensajes del dispositivo. Al ver el mensaje enviado, debajo del payload en hexadecimal, veremos las
+4 variables que declaramos en el "Device Type"
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme3.png?raw=true)
 
