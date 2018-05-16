@@ -21,6 +21,8 @@ El sensor se conecta de acuerdo a la imagen de abajo
 
 Una vez conectado, cargamos a nuestro Devkit el siguiente programa.
 
+![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme1.png?raw=true)
+
 Abrimos el "Monitor Serie" de Arduino y nos aparecerá la información de las cuatro variables que está midiendo. Despues desplegara 
 los comandos de "reset" del modulo y el comando de envio "AT$SF=xxxxxxxx"
 
@@ -28,3 +30,4 @@ En nuestro backend, necesitaremos decodificar el dato en crudo que llega al back
 con lo mostrado en el "Monitor Serie". 
 
 Si revisamos el backend de Sigfox veremos que la informacion enviada en hexadecimal
+
