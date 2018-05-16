@@ -28,8 +28,10 @@ Adafruit_BME280 bme; // I2C
 //Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK); // software SPI
 
 unsigned long delayTime;
-String bufer;
-String bufer2="\n";
+//*****************************************************
+String bufer; //variable donde guardaremos nuestro payload
+String bufer2="\n";   //agregamos un salto de linea al final de nuestro payload
+//*****************************************************
 
 void setup() {
     Serial.begin(9600);
@@ -66,27 +68,45 @@ void printValues() {
     int temp=bme.readTemperature();
     Serial.print(temp);
     Serial.println(" *C");
-    add_int(temp);
+
+    //-----------------------------------------------------
+    //AT$SF= comando para mandar la informacion por sigfox
+    bufer="AT$SF=";   //Maximo 12 bytes
+    //-----------------------------------------------------
+    add_int(temp);     //se agrega 1 byte a nuestro payload
+    //-----------------------------------------------------
+    
     Serial.print("Pressure = ");
     float presion=bme.readPressure() / 100.0F;
     Serial.print(presion);
     Serial.println(" hPa");
-    add_float(presion);
+
+    //-----------------------------------------------------
+    add_float(presion);   //se agregan 4 bytes mas a nuestro payload por ser flotante
+    //-----------------------------------------------------
+    
     Serial.print("Approx. Altitude = ");
     float altura=bme.readAltitude(SEALEVELPRESSURE_HPA);
     Serial.print(altura);
     Serial.println(" m");
-    add_float(altura);
+
+    //-----------------------------------------------------
+    add_float(altura);  //se agregan otros 4 bytes a nuestro payload por ser flotante
+    //-----------------------------------------------------
     Serial.print("Humidity = ");
     int hum=bme.readHumidity();
     Serial.print(hum);
     Serial.println(" %");
-    add_int(hum);
+
+    //-----------------------------------------------------
+    add_int(hum);  //se agrega un byte mas. 10 bytes en total
+    //-----------------------------------------------------
+    
     Serial.println();
     send_message(bufer);
 }
 
-void add_float(float var1)
+void add_float(float var1)//funcion para agregar flotantes al payload
 {
   byte* a1 = (byte*) &var1;
   String str1;
@@ -104,7 +124,7 @@ void add_float(float var1)
     }
   }
 }
-void add_int(int var2)
+void add_int(int var2) //funcion para agregar enteros al payload (hasta 255)
 {
   byte* a2 = (byte*) &var2;
   String str2;
