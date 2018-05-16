@@ -20,9 +20,14 @@ El sensor se conecta de acuerdo a la imagen de abajo
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme1.png?raw=true)
 
-Una vez conectado, cargamos a nuestro Devkit el siguiente programa.
+Una vez conectado, cargamos a nuestro Devkit el siguiente programa ([code](https://github.com/NXTIoT/Multiples_variables/blob/master/BME280_sigfox/bme280_sigfox.ino))
+Abrimos el "Monitor Serie" de Arduino y nos aparecerá la información de las cuatro variables que está midiendo. Despues desplegara 
+los comandos de "reset" del modulo y el comando de envio "AT$SF=xxxxxxxx"
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme2.png?raw=true)
+
+En nuestro backend, necesitaremos decodificar el dato en crudo que llega al backend para corroborar que la informacion enviada corresponda 
+con lo mostrado en el "Monitor Serie". 
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme3.png?raw=true)
 
@@ -32,11 +37,9 @@ Una vez conectado, cargamos a nuestro Devkit el siguiente programa.
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme6.png?raw=true)
 
-Abrimos el "Monitor Serie" de Arduino y nos aparecerá la información de las cuatro variables que está midiendo. Despues desplegara 
-los comandos de "reset" del modulo y el comando de envio "AT$SF=xxxxxxxx"
 
-En nuestro backend, necesitaremos decodificar el dato en crudo que llega al backend para corroborar que la informacion enviada corresponda 
-con lo mostrado en el "Monitor Serie". 
 
-Si revisamos el backend de Sigfox veremos que la informacion enviada en hexadecimal
+
+
+Si revisamos el backend de Sigfox veremos que la informacion enviada en hexadecimal 
 
