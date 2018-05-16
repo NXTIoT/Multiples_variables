@@ -3,10 +3,12 @@ Multiples_variables
 
 -	[Introducción](#introducción)
 
+-	[Conexión](#conexión)
+
 Introducción
 ------------
 
-La finalidad de este repositorio es mostrar una manera de enviar multiples variables en un solo mensaje a través de Sigfox. 
+La finalidad de este repositorio es mostrar una manera de enviar multiples variables con el DEVKIT en un solo mensaje a través de Sigfox. 
 Se utilizará el sensor BME280 el cual nos proporciona cuatro variables diferentes: temperatura, presión, 
 altura y humedad (Se puede utilizar otro tipo de sensores). Estas cuatro variables las introduciremos 
 en nuestro payload, que posteriormente será enviado hacia el backend de Sigfox. Ya en el backend decodificaremos la informacion 
@@ -50,5 +52,4 @@ ahora nos vamos a los mensajes del dispositivo. Al ver el mensaje enviado, debaj
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme3.png?raw=true)
 
 
-Si revisamos el backend de Sigfox veremos que la informacion enviada en hexadecimal 
 
