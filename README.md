@@ -6,7 +6,7 @@ Multiples_variables
 Introducción
 ------------
 
-La finalidad de este repositorio es mostrar como enviar multiples variables en un solo mensaje a través de Sigfox. 
+La finalidad de este repositorio es mostrar una manera de enviar multiples variables en un solo mensaje a través de Sigfox. 
 Se utilizará el sensor BME280 el cual nos proporciona cuatro variables diferentes: temperatura, presión, 
 altura y humedad (Se puede utilizar otro tipo de sensores). Estas cuatro variables las introduciremos 
 en nuestro payload, que posteriormente será enviado hacia el backend de Sigfox. Ya en el backend decodificaremos la informacion 
@@ -17,7 +17,7 @@ El programa del sensor BM280 y las librerías fueron tomadas del Github de Adafr
 Conexión
 --------
 
-El sensor se conecta de acuerdo a la imagen de abajo
+El sensor se conecta de acuerdo a la imagen de abajo utilizando la comunicación I2C
 
 ![dev1](https://github.com/NXTIoT/Multiples_variables/blob/master/imagenes/bme1.png?raw=true)
 
