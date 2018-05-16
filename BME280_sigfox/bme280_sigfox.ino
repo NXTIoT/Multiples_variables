@@ -28,6 +28,7 @@ Adafruit_BME280 bme; // I2C
 //Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK); // software SPI
 
 unsigned long delayTime;
+const int boton=6;  //definimos la entrada de nuestro boton azul
 //*****************************************************
 String bufer; //variable donde guardaremos nuestro payload
 String bufer2="\n";   //agregamos un salto de linea al final de nuestro payload
@@ -36,8 +37,8 @@ String bufer2="\n";   //agregamos un salto de linea al final de nuestro payload
 void setup() {
     Serial.begin(9600);
     Serial.println(F("BME280 test"));
-    
-    pinMode(7, OUTPUT);
+    pinMode(boton, INPUT);  
+    pinMode(7, OUTPUT);   //enable modulo wisol
 
     bool status;
     
@@ -50,16 +51,19 @@ void setup() {
     }
     
     Serial.println("-- Default Test --");
-    delayTime = 120000;
+    delayTime = 1000;
 
     Serial.println();
 }
 
 
-void loop() { 
-    bufer="AT$SF=";
+void loop() 
+{ 
+  if (digitalRead(boton)==LOW)
+  { 
     printValues();
     delay(delayTime);
+  }
 }
 
 
@@ -97,13 +101,13 @@ void printValues() {
     int hum=bme.readHumidity();
     Serial.print(hum);
     Serial.println(" %");
+    Serial.println();
 
     //-----------------------------------------------------
     add_int(hum);  //se agrega un byte mas. 10 bytes en total
     //-----------------------------------------------------
     
-    Serial.println();
-    send_message(bufer);
+    send_message(bufer); //envio de nuestra informacion
 }
 
 void add_float(float var1)//funcion para agregar flotantes al payload
